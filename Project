@@ -1,0 +1,87 @@
+package Minor_Project;
+import java.util.Scanner;
+public class Project {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int MemberID, Coach, Handicap, date, year;
+        long Phone;
+        char Gender;
+        String LastName, FirstName, Team, MemberType, month;
+        System.out.print("Enter number of members : ");
+        int n = scan.nextInt();
+        Member person[] = new Member[n];
+        Date obj[] = new Date[n];
+        for(int i=0; i<n; i++) {
+            System.out.print("Enter member ID : ");
+            MemberID = scan.nextInt();
+            System.out.print("Enter last name : ");
+            LastName = scan.next();
+            System.out.print("Enter first name : ");
+            FirstName = scan.next();
+            System.out.print("Enter handicap : ");
+            Handicap = scan.nextInt();
+            System.out.print("Enter gender (M/F/O) : ");
+            Gender = scan.next().charAt(0);
+            System.out.print("Enter team name : ");
+            Team = scan.next();
+            System.out.print("Enter membership type : ");
+            MemberType = scan.next();
+            System.out.print("Enter coach number : ");
+            Coach = scan.nextInt();
+            System.out.print("Enter phone number : ");
+            Phone = scan.nextLong();
+            System.out.print("Enter date of joining : ");
+            date = scan.nextInt();
+            System.out.print("Enter month of joining : ");
+            month = scan.next();
+            System.out.print("Enter year of joining : ");
+            year = scan.nextInt();
+            Member person[i] = new Member(MemberID, LastName, FirstName, Handicap, Gender, Team, MemberType, Coach, Phone);
+            Date obj[i] = new Date(date, month, year);
+            System.out.println();
+
+        }
+    }
+}
+
+class Member extends Date {
+     int MemberID;
+     String LastName;
+     String FirstName;
+     int Handicap;
+     char Gender;
+     String Team;
+     String MemberType;
+     int Coach;
+     long Phone;
+     Date JoinDate;
+
+    Member(int MemberID, String LastName, String FirstName, int Handicap, char Gender, String Team, String MemberType, int Coach, long Phone) {
+        this.MemberID = MemberID;
+        this.FirstName = FirstName;
+        this.LastName = LastName;
+        this.Handicap = Handicap;
+        this.Gender = Gender;
+        this.MemberType = MemberType;
+        this.Phone = Phone;
+        this.Team = Team;
+        this.Coach = Coach;
+
+    }
+
+    void display() {
+        System.out.print("")
+    }
+}
+
+class Date {
+     int day;
+     String month;
+     int year;
+
+    Date(int day, String month, int year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+    }
+}
