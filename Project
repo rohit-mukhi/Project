@@ -42,6 +42,15 @@ public class Project {
         for(int i=0; i<n; i++) {
             person[i].display();
         }
+        System.out.println();
+        System.out.println("Details of members joined before 7 April, 2009");
+        System.out.println();
+        System.out.println("Member ID   Last name   First name  Handicap    Gender  Team    Member type   Coach   Phone   Date of joining");
+        for(int i=0; i<n; i++) {
+            if((person[i].JoinDate.day < 7) && (person[i].JoinDate.monthIndex < 4) && (person[i].JoinDate.year < 2009)){
+                person[i].display();
+            }
+        }
         scan.close();
     }
 }
@@ -59,7 +68,7 @@ class Member {
      Date JoinDate = new Date();
      Member(int MemberID, String LastName, String FirstName, int Handicap, char Gender, String Team, String MemberType, int Coach, long Phone, int day, String month, int year) {
         JoinDate.day = day;
-        JoinDate.month = month;
+        JoinDate.month = month.toLowerCase();
         JoinDate.year = year;
         this.MemberID = MemberID;
         this.FirstName = FirstName;
@@ -70,7 +79,12 @@ class Member {
         this.Phone = Phone;
         this.Team = Team;
         this.Coach = Coach;
-
+        for(int i=0; i<12; i++) {
+            if(JoinDate.month.equals(JoinDate.months[i])) {
+                JoinDate.monthIndex = i;
+                break;
+            }
+        }
     }
 
     void display() {
@@ -82,5 +96,7 @@ class Date {
      int day;
      String month;
      int year;
+     int monthIndex;
+     String months[] = {"january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"};
 }
 
