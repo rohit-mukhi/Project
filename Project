@@ -43,6 +43,7 @@ public class Project {
             person[i].display();
         }
         System.out.println();
+
         System.out.println("Details of members joined before 7 April, 2009");
         System.out.println();
         System.out.println("Member ID   Last name   First name  Handicap    Gender  Team    Member type   Coach   Phone   Date of joining");
@@ -51,6 +52,28 @@ public class Project {
                 person[i].display();
             }
         }
+        System.out.println();
+
+        System.out.println("Details of senior members with handicap score less than 12 ");
+        System.out.println();
+        System.out.println("Member ID   Last name   First name  Handicap    Gender  Team    Member type   Coach   Phone   Date of joining");
+        for(int i=0; i<n; i++) {
+            if((person[i].MemberType.equals("senior")) && (person[i].Handicap < 12)){
+                person[i].display();
+            }
+        }
+        System.out.println();
+
+        System.out.println("Details of female senior members of team B ");
+        System.out.println();
+        System.out.println("Member ID   Last name   First name  Handicap    Gender  Team    Member type   Coach   Phone   Date of joining");
+        for(int i=0; i<n; i++) {
+            if((person[i].Gender == 'f') && (person[i].MemberType.equals("senior")) && (person[i].Team.equals("B"))){
+                person[i].display();
+            }
+        }
+        System.out.println();
+
         scan.close();
     }
 }
@@ -74,10 +97,10 @@ class Member {
         this.FirstName = FirstName;
         this.LastName = LastName;
         this.Handicap = Handicap;
-        this.Gender = Gender;
-        this.MemberType = MemberType;
+        this.Gender = Character.toLowerCase(Gender);
+        this.MemberType = MemberType.toLowerCase();
         this.Phone = Phone;
-        this.Team = Team;
+        this.Team = Team.toUpperCase();
         this.Coach = Coach;
         for(int i=0; i<12; i++) {
             if(JoinDate.month.equals(JoinDate.months[i])) {
