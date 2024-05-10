@@ -36,8 +36,8 @@ public class Project {
             month = scan.next();
             System.out.print("Enter year of joining : ");
             year = scan.nextInt();
-            Member person[i] = new Member(MemberID, LastName, FirstName, Handicap, Gender, Team, MemberType, Coach, Phone);
-            Date obj[i] = new Date(date, month, year);
+            person[i] = new Member(MemberID, LastName, FirstName, Handicap, Gender, Team, MemberType, Coach, Phone);
+            obj[i] = new Date(date, month, year);
             System.out.println();
 
         }
@@ -70,7 +70,8 @@ class Member extends Date {
     }
 
     void display() {
-        System.out.print("")
+        System.out.println(
+        
     }
 }
 
