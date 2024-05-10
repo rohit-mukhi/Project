@@ -10,7 +10,6 @@ public class Project {
         System.out.print("Enter number of members : ");
         int n = scan.nextInt();
         Member person[] = new Member[n];
-        Date obj[] = new Date[n];
         for(int i=0; i<n; i++) {
             System.out.print("Enter member ID : ");
             MemberID = scan.nextInt();
@@ -36,27 +35,32 @@ public class Project {
             month = scan.next();
             System.out.print("Enter year of joining : ");
             year = scan.nextInt();
-            person[i] = new Member(MemberID, LastName, FirstName, Handicap, Gender, Team, MemberType, Coach, Phone);
-            obj[i] = new Date(date, month, year);
+            person[i] = new Member(MemberID, LastName, FirstName, Handicap, Gender, Team, MemberType, Coach, Phone, date, month, year);
             System.out.println();
-
         }
+        System.out.println("Member ID   Last name   First name  Handicap    Gender  Team    Member type   Coach   Phone   Date of joining");
+        for(int i=0; i<n; i++) {
+            person[i].display();
+        }
+        scan.close();
     }
 }
 
-class Member extends Date {
-     int MemberID;
-     String LastName;
-     String FirstName;
-     int Handicap;
-     char Gender;
-     String Team;
-     String MemberType;
-     int Coach;
-     long Phone;
-     Date JoinDate;
-
-    Member(int MemberID, String LastName, String FirstName, int Handicap, char Gender, String Team, String MemberType, int Coach, long Phone) {
+class Member {
+     private int MemberID;
+     private String LastName;
+     private String FirstName;
+     private int Handicap;
+     private char Gender;
+     private String Team;
+     private String MemberType;
+     private int Coach;
+     private long Phone;
+     Date JoinDate = new Date();
+     Member(int MemberID, String LastName, String FirstName, int Handicap, char Gender, String Team, String MemberType, int Coach, long Phone, int day, String month, int year) {
+        JoinDate.day = day;
+        JoinDate.month = month;
+        JoinDate.year = year;
         this.MemberID = MemberID;
         this.FirstName = FirstName;
         this.LastName = LastName;
@@ -70,8 +74,7 @@ class Member extends Date {
     }
 
     void display() {
-        System.out.println(
-        
+        System.out.println(MemberID+"     "+LastName+"    "+FirstName+"   "+Handicap+"    "+Gender+"  "+Team+"    "+MemberType+"  "+Coach+"   "+Phone+"   "+JoinDate.day+"-"+JoinDate.month+"-"+JoinDate.year);
     }
 }
 
@@ -79,10 +82,5 @@ class Date {
      int day;
      String month;
      int year;
-
-    Date(int day, String month, int year) {
-        this.day = day;
-        this.month = month;
-        this.year = year;
-    }
 }
+
