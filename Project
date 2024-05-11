@@ -58,7 +58,7 @@ public class Project {
         System.out.println();
         System.out.println("Member ID   Last name   First name  Handicap    Gender  Team    Member type   Coach   Phone   Date of joining");
         for(int i=0; i<n; i++) {
-            if((person[i].MemberType.equals("senior")) && (person[i].Handicap < 12)){
+            if((person[i].memberType().equals("senior")) && (person[i].handicap() < 12)){
                 person[i].display();
             }
         }
@@ -68,7 +68,7 @@ public class Project {
         System.out.println();
         System.out.println("Member ID   Last name   First name  Handicap    Gender  Team    Member type   Coach   Phone   Date of joining");
         for(int i=0; i<n; i++) {
-            if((person[i].Gender == 'f') && (person[i].MemberType.equals("senior")) && (person[i].Team.equals("B"))){
+            if((person[i].gender() == 'f') && (person[i].memberType().equals("senior")) && (person[i].team().equals("B"))){
                 person[i].display();
             }
         }
@@ -112,6 +112,22 @@ class Member {
 
     void display() {
         System.out.println(MemberID+"     "+LastName+"    "+FirstName+"   "+Handicap+"    "+Gender+"  "+Team+"    "+MemberType+"  "+Coach+"   "+Phone+"   "+JoinDate.day+"-"+JoinDate.month+"-"+JoinDate.year);
+    }
+
+    char gender() {
+        return Gender;
+    }
+
+    String memberType() {
+        return MemberType;
+    }
+
+    String team() {
+        return Team;
+    }
+
+    int handicap() {
+        return Handicap;
     }
 }
 
