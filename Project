@@ -48,8 +48,18 @@ public class Project {
         System.out.println();
         System.out.println("Member ID   Last name   First name  Handicap    Gender  Team    Member type   Coach   Phone   Date of joining");
         for(int i=0; i<n; i++) {
-            if((person[i].JoinDate.day < 7) && (person[i].JoinDate.monthIndex < 4) && (person[i].JoinDate.year < 2009)){
+            if(person[i].JoinDate.year == 2009){
+                if(person[i].JoinDate.monthIndex == 4) {
+                    if(person[i].JoinDate.day < 7) {
+                        person[i].display();
+                        continue;
+                    }
+                }else if(person[i].JoinDate.monthIndex < 4) {
+                    person[i].display();
+                }
+            } else if(person[i].JoinDate.year <= 2008) {
                 person[i].display();
+                continue;
             }
         }
         System.out.println();
@@ -104,7 +114,7 @@ class Member {
         this.Coach = Coach;
         for(int i=0; i<12; i++) {
             if(JoinDate.month.equals(JoinDate.months[i])) {
-                JoinDate.monthIndex = i;
+                JoinDate.monthIndex = i+1;
                 break;
             }
         }
